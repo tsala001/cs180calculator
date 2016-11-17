@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!--external style sheet-->
+	<link rel="stylesheet" href="form.css" type="text/css">
+	<meta name="description" content="math.js | basic usage">
+	<title>math.js | basic usage</title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.6.0/math.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<!-- CSS code: -->
+<style type="text/css">
+
+
+    body{
+        background: linear-gradient(-90deg, #0066ff, #00ffff);
+    }
+
+	#container{
+		width:100%;
+	}
+	#left{
+		float:left;
+		bottom:10%;
+	}
+	#right{
+		float:right;
+	}
+	#center{
+	}
+
+    .constnaslov {
+    	position:center;
+		width: 200px;
+		color: #00BFFF;
+		font: bold 12px/125% sans-serif;
+		margin: 5px;
+		padding-bottom: 5px; 
+		right:40px;
+		
+	}
+	.const {
+		width: 200px;
+		height: 50px;
+		text-align: center;
+		font: bold 11px/125% sans-serif;
+		margin: 5px;
+		padding-bottom: 5px;
+		border-bottom: 1px #00BFFF solid;
+		float:left;
+	}
+	.const a:link {
+		display: block;
+		color: white;
+		text-decoration: none;
+	}
+	.const a:visited {
+		display: block;
+		color: #036;
+		text-decoration: none;
+	}
+	.const a:active {
+		display: block;
+		color: #00BFFF;
+		text-decoration: none;
+	}
+	.const a:hover {
+		display: block;
+		background: #00BFFF;
+		color: black;
+		text-decoration: none;
+	}
+
+    .box1
+    {
+        background-color:black;
+        opacity:.85;
+        height:500px;
+        width:350px;
+        border-radius:10px;
+        top:80px;
+        left:5%;
+        
+    }
+    .box2
+    {
+        background-color:black;
+        opacity:.85;
+        height:550px;
+        width:400px;
+        border-radius:10px;
+        top:80px;
+        left:5%;   
+    }
+	
+	.box3
+    {
+        background-color:black;
+        opacity:.85;
+        height:450px;
+        width:950px;
+        border-radius:10px;
+        top:80px;
+        left:5%;   
+    }
+
+    .box4
+    {
+        background-color:black;
+        opacity:.85;
+        height:830px;
+        width:420px;
+        border-radius:10px;
+        top:80px;
+        
+    }   
+
+    .box5
+    {
+    	opacity:.85;
+        background-color:black;
+        height:550px;
+        width:400px;
+        border-radius:10px;
+    }
+
+    .box6
+    {
+    	background-color:black;
+    	opacity:.85;
+    	height: 1000px;
+    	width: 400px;
+    	border-radius:10px;
+    	padding-top: 20px;
+    	padding-left: 50px;
+    }
+
+    .button{
+    	position:relative;
+    	top:20px;
+        width:50px;
+        height:50px;
+        padding:0;
+        border:none;
+        border-radius:2px;
+        border-color:black;
+        border-top-color:black;
+        font-size:24px;
+    }
+
+    .button.black{
+        color:white;
+        background-color:black;
+    }
+
+    .button.blue{
+        color:#00BFFF;
+        background-color:black;
+    }
+
+    .buttonw{
+    	position:relative;
+    	top:20px;
+        width:150px;
+        height:50px;
+        padding:0;
+        border:none;
+        border-radius:2px;
+        border-color:black;
+        border-top-color:black;
+        font-size:24px;
+    }
+
+    .buttonw.black{
+        color:white;
+        background-color:black;
+    }
+
+    .buttonw.blue{
+        color:#00BFFF;
+        background-color:black;
+    }
+
+    .buttonconv{
+    	position:relative;
+    	width:75px;
+    	height:35px;
+    	padding:0;
+    	border-radius:4px;
+    	border-color:#00BFFF;
+    	border-width:1px;
+    	font-size:14px;
+    	margin-bottom:10px;
+    }
+
+    .buttonconv.black{
+        color:white;
+        background-color:black;    	
+    }
+
+    .buttonconv.blue{
+        color:black;
+        background-color:#00BFFF;
+    }
+
+    .buttonp{
+    	position:relative;
+    	color: #00BFFF ;
+    	background-color:black;
+        width:120px;
+        height:40px;
+        padding:0;
+        border:none;
+        border-radius:4px;
+        border-color:black;
+        border-top-color:black;
+        font-size:16px;
+    }
+
+    .display1 input{
+        position: relative;
+        top:30px;
+        height:85px;
+        width:200;
+        color:white;
+        font:bolder;
+        border-radius:3px;
+        border-width:1px;
+        background-color:black;
+        text-align:right;
+        font-size:32px;
+
+    }
+
+    .display2 input{
+        position: relative;
+        top:30px;
+        height:85px;
+        width:250;
+        color:white;
+        font:bolder;
+        border-radius:3px;
+        border-width:1px;
+        background-color:black;
+        text-align:right;
+        font-size:32px;
+
+    }
+	.display3 input{
+        position: relative;
+        top:30px;
+        height:85px;
+        width:900px;
+        color:white;
+        font:bolder;
+        border-radius:3px;
+        border-width:1px;
+        background-color:black;
+        text-align:right;
+        font-size:32px;
+
+    }
+
+    .displayc input{
+    	position:inline-block;
+        height:25px;
+        width:150px;
+        color:white;
+        font:bolder;
+        border-radius:3px;
+        border-width:1px;
+        background-color:black;
+        text-align:right;
+        font-size:16px;
+    }
+
+    select{
+    	background:black;
+    	color:#00BFFF;
+    	width:150px;
+    	height:25px;
+    	border-color:#00BFFF;
+    	border-width:1px;
+    	font-size:16px;
+    	margin-bottom: 10px;
+    }
+
+	select option {
+    	background: black;
+    	color:white;
+	}
+	
+		.dropbtn {
+    background-color: #000000;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+	.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+	.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+	.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+
+</style>
+<script>
+	$(function(){
+		/*
+		 * this swallows backspace keys on any non-input element.
+		 * stops backspace -> back
+		 */
+		var rx = /INPUT|SELECT|TEXTAREA/i;
+
+		$(document).bind("keydown keypress", function(e){
+			if( e.which == 8 ){ // 8 == backspace
+				if(!rx.test(e.target.tagName) || e.target.disabled || e.target.readOnly ){
+					e.preventDefault();
+				}
+			}
+		});
+	});
+	/* When the user clicks on the button,
+	toggle between hiding and showing the dropdown content */
+	function myFunction() {
+		document.getElementById("myDropdown").classList.toggle("show");
+	}
+
+	// Close the dropdown if the user clicks outside of it
+	window.onclick = function(event) {
+	  if (!event.target.matches('.dropbtn')) {
+
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+		for (i = 0; i < dropdowns.length; i++) {
+		  var openDropdown = dropdowns[i];
+		  if (openDropdown.classList.contains('show')) {
+			openDropdown.classList.remove('show');
+		  }
+		}
+	  }
+	}
+	function openCalc(evt, calcName) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		document.getElementById(calcName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
+	function btnclear2()
+    {
+		document.Calculator2.display.value ="";
+        document.Calculator2.display.style.TextAlign="right";
+    }
+    function recip2()
+    {
+        document.Calculator2.display.value = 1/document.Calculator2.display.value;
+    }
+	function yoyo2()
+	{
+		document.Calculator2.display.value = math.eval(document.Calculator2.display.value);
+		if(document.Calculator2.display.value.length >= 15)
+		{
+			document.Calculator2.display.value = document.Calculator2.display.value.substring(0, 13);
+		}
+	}
+	function backspace2() {
+		if(document.Calculator2.display.value.find("pi"))
+		{
+			document.Calculator2.display.value = document.Calculator2.display.value.substring(0, document.Calculator2.display.value.length - 2);
+		}
+		else 
+		{
+			document.Calculator2.display.value = document.Calculator2.display.value.substring(0, document.Calculator2.display.value.length - 1);
+		}
+	}
+	function btnclear()
+    {
+		document.Calculator.display.value ="";
+        document.Calculator.display.style.TextAlign="right";
+    }
+    function recip()
+    {
+        document.Calculator.display.value = 1/document.Calculator.display.value;
+    }
+	function yoyo()
+	{
+		if(document.Calculator.display.value.includes("("))
+		{
+			if(!document.Calculator.display.value.includes(")"))
+			{
+				document.Calculator.display.value += ")";
+			}
+		}
+		document.Calculator.display.value = math.eval(document.Calculator.display.value);
+		if(document.Calculator.display.value.length >= 15)
+		{
+			document.Calculator.display.value = document.Calculator.display.value.substring(0, 13);
+		}
+	}
+	function backspace() {
+		if(document.Calculator.display.value.endsWith("pi"))
+		{
+			document.Calculator.display.value = document.Calculator.display.value.substring(0, document.Calculator.display.value.length - 2);
+		}
+		else if(document.Calculator.display.value.endsWith("sin(") || document.Calculator.display.value.endsWith("cos(") || document.Calculator.display.value.endsWith("tan(") || document.Calculator.display.value.endsWith("log("))
+		{
+			document.Calculator.display.value = document.Calculator.display.value.substring(0, document.Calculator.display.value.length - 4);
+			if(document.Calculator.display.value.endsWith("a"))
+			{
+				document.Calculator.display.value = document.Calculator.display.value.substring(0, document.Calculator.display.value.length - 1);
+			}
+		}
+		else if(document.Calculator.display.value.endsWith("ln("))
+		{
+			document.Calculator.display.value = document.Calculator.display.value.substring(0, document.Calculator.display.value.length - 3);
+		}
+		else 
+		{
+			document.Calculator.display.value = document.Calculator.display.value.substring(0, document.Calculator.display.value.length - 1);
+		}
+	}
+	function yoyo4()
+	{
+		document.Calculator4.display.value = math.eval(document.Calculator4.display.value);
+		if(document.Calculator4.display.value.length >= 15)
+		{
+			document.Calculator4.display.value = document.Calculator4.display.value.substring(0, 13);
+		}
+	}
+	function backspace4() {
+		if(document.Calculator4.display.value.endsWith("pi"))
+		{
+			document.Calculator4.display.value = document.Calculator4.display.value.substring(0, document.Calculator4.display.value.length - 2);
+		}
+		else if(document.Calculator4.display.value.endsWith("sin(") || document.Calculator4.display.value.endsWith("cos(") || document.Calculator4.display.value.endsWith("tan(") || document.Calculator4.display.value.endsWith("log("))
+		{
+			document.Calculator.display.value = document.Calculator4.display.value.substring(0, document.Calculator4.display.value.length - 4);
+			if(document.Calculator4.display.value.endsWith("a"))
+			{
+				document.Calculator4.display.value = document.Calculator4.display.value.substring(0, document.Calculator4.display.value.length - 1);
+			}
+		}
+		else if(document.Calculator4.display.value.endsWith("ln("))
+		{
+			document.Calculator4.display.value = document.Calculator4.display.value.substring(0, document.Calculator4.display.value.length - 3);
+		}
+		else 
+		{
+			document.Calculator4.display.value = document.Calculator4.display.value.substring(0, document.Calculator4.display.value.length - 1);
+		}
+	}
+	function recip4()
+    {
+        document.Calculator4.display.value = 1/document.Calculator4.display.value;
+    }
+	function btnclear4()
+    {
+		document.Calculator4.display.value ="";
+        document.Calculator4.display.style.TextAlign="right";
+    }
+		function lengthen()
+	{
+		var selectedValue = document.getElementById("length1").value;
+		if (selectedValue == "m")
+		{
+			var u = math.unit(document.getElementById("lengthin").value, 'm');
+			var selected2 = document.getElementById("length2").value;
+			document.getElementById("lengthin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "km")
+		{
+			var u = math.unit(document.getElementById("lengthin").value, 'km');
+			var selected2 = document.getElementById("length2").value;
+			document.getElementById("lengthin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "cm")
+		{
+			var u = math.unit(document.getElementById("lengthin").value, 'cm');
+			var selected2 = document.getElementById("length2").value;
+			document.getElementById("lengthin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "mm")
+		{
+			var u = math.unit(document.getElementById("lengthin").value, 'mm');
+			var selected2 = document.getElementById("length2").value;
+			document.getElementById("lengthin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "um")
+		{
+			var u = math.unit(document.getElementById("lengthin").value, 'um');
+			var selected2 = document.getElementById("length2").value;
+			document.getElementById("lengthin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "nm")
+		{
+			var u = math.unit(document.getElementById("lengthin").value, 'nm');
+			var selected2 = document.getElementById("length2").value;
+			document.getElementById("lengthin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "mi")
+		{
+			var u = math.unit(document.getElementById("lengthin").value, 'mi');
+			var selected2 = document.getElementById("length2").value;
+			document.getElementById("lengthin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "ft")
+		{
+			var u = math.unit(document.getElementById("lengthin").value, 'ft');
+			var selected2 = document.getElementById("length2").value;
+			document.getElementById("lengthin2").value = u.to(selected2);
+		}
+		else
+		{
+			var u = math.unit(document.getElementById("lengthin").value, 'in');
+			var selected2 = document.getElementById("length2").value;
+			document.getElementById("lengthin2").value = u.to(selected2);
+		}
+	}
+	function temp()
+	{
+		var selectedValue = document.getElementById("temp1").value;
+		if (selectedValue == "degC")
+		{
+			var u = math.unit(document.getElementById("tempin").value, 'degC');
+			var selected2 = document.getElementById("temp2").value;
+			document.getElementById("tempin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "degF")
+		{
+			var u = math.unit(document.getElementById("tempin").value, 'degF');
+			var selected2 = document.getElementById("temp2").value;
+			document.getElementById("tempin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "K")
+		{
+			var u = math.unit(document.getElementById("tempin").value, 'K');
+			var selected2 = document.getElementById("temp2").value;
+			document.getElementById("tempin2").value = u.to(selected2);
+		}
+	}
+	function volume()
+	{
+		var selectedValue = document.getElementById("vol1").value;
+		if (selectedValue == "L")
+		{
+			var u = math.unit(document.getElementById("volin").value, 'L');
+			var selected2 = document.getElementById("vol2").value;
+			document.getElementById("volin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "mL")
+		{
+			var u = math.unit(document.getElementById("volin").value, 'mL');
+			var selected2 = document.getElementById("vol2").value;
+			document.getElementById("volin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "gal")
+		{
+			var u = math.unit(document.getElementById("volin").value, 'gal');
+			var selected2 = document.getElementById("vol2").value;
+			document.getElementById("volin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "qt")
+		{
+			var u = math.unit(document.getElementById("volin").value, 'qt');
+			var selected2 = document.getElementById("vol2").value;
+			document.getElementById("volin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "pt")
+		{
+			var u = math.unit(document.getElementById("volin").value, 'pt');
+			var selected2 = document.getElementById("vol2").value;
+			document.getElementById("volin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "cp")
+		{
+			var u = math.unit(document.getElementById("volin").value, 'cp');
+			var selected2 = document.getElementById("vol2").value;
+			document.getElementById("volin2").value = u.to(selected2);
+		}
+	}
+	function weight()
+	{
+		var selectedValue = document.getElementById("wei1").value;
+		if (selectedValue == "kg")
+		{
+			var u = math.unit(document.getElementById("weiin").value, 'kg');
+			var selected2 = document.getElementById("wei2").value;
+			document.getElementById("weiin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "g")
+		{
+			var u = math.unit(document.getElementById("weiin").value, 'g');
+			var selected2 = document.getElementById("wei2").value;
+			document.getElementById("weiin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "mg")
+		{
+			var u = math.unit(document.getElementById("weiin").value, 'mg');
+			var selected2 = document.getElementById("wei2").value;
+			document.getElementById("weiin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "ton")
+		{
+			var u = math.unit(document.getElementById("weiin").value, 'ton');
+			var selected2 = document.getElementById("wei2").value;
+			document.getElementById("weiin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "lb")
+		{
+			var u = math.unit(document.getElementById("weiin").value, 'lb');
+			var selected2 = document.getElementById("wei2").value;
+			document.getElementById("weiin2").value = u.to(selected2);
+		}
+		else if(selectedValue == "oz")
+		{
+			var u = math.unit(document.getElementById("weiin").value, 'oz');
+			var selected2 = document.getElementById("wei2").value;
+			document.getElementById("weiin2").value = u.to(selected2);
+		}
+	}
+	function timing()
+	{
+		var selectedValue = document.getElementById("time1").value;
+		if (selectedValue == "s")
+		{
+			var u = math.unit(document.getElementById("timein").value, 's');
+			var selected2 = document.getElementById("time2").value;
+			document.getElementById("timein2").value = u.to(selected2);
+		}
+		else if(selectedValue == "ms")
+		{
+			var u = math.unit(document.getElementById("timein").value, 'ms');
+			var selected2 = document.getElementById("time2").value;
+			document.getElementById("timein2").value = u.to(selected2);
+		}
+		else if(selectedValue == "us")
+		{
+			var u = math.unit(document.getElementById("timein").value, 'us');
+			var selected2 = document.getElementById("time2").value;
+			document.getElementById("timein2").value = u.to(selected2);
+		}
+		else if(selectedValue == "ns")
+		{
+			var u = math.unit(document.getElementById("timein").value, 'ns');
+			var selected2 = document.getElementById("time2").value;
+			document.getElementById("timein2").value = u.to(selected2);
+		}
+		else if(selectedValue == "min")
+		{
+			var u = math.unit(document.getElementById("weiin").value, 'lb');
+			var selected2 = document.getElementById("time2").value;
+			document.getElementById("timein2").value = u.to(selected2);
+		}
+		else if(selectedValue == "h")
+		{
+			var u = math.unit(document.getElementById("timein").value, 'h');
+			var selected2 = document.getElementById("time2").value;
+			document.getElementById("timein2").value = u.to(selected2);
+		}
+		else if(selectedValue == "days")
+		{
+			var u = math.unit(document.getElementById("timein").value, 'days');
+			var selected2 = document.getElementById("time2").value;
+			document.getElementById("timein2").value = u.to(selected2);
+		}
+		else if(selectedValue == "weeks")
+		{
+			var u = math.unit(document.getElementById("timein").value, 'weeks');
+			var selected2 = document.getElementById("time2").value;
+			document.getElementById("timein2").value = u.to(selected2);
+		}
+		else if(selectedValue == "months")
+		{
+			var u = math.unit(document.getElementById("timein").value, 'months');
+			var selected2 = document.getElementById("time2").value;
+			document.getElementById("timein2").value = u.to(selected2);
+		}
+		else if(selectedValue == "years")
+		{
+			var u = math.unit(document.getElementById("timein").value, 'years');
+			var selected2 = document.getElementById("time2").value;
+			document.getElementById("timein2").value = u.to(selected2);
+		}
+	}
+	var isHex = true;
+	var isDec = false;
+	var isOct = false;
+	var isBin = false;
+	var cAND = false;
+	var cNAND = false;
+	var cOR = false;
+	var cNOR = false;
+	var cXOR = false;
+	function square3 ()
+	{
+		document.Calculator3.display.value *= document.Calculator3.display.value;
+	}
+	function btnclear3()
+    	{
+		document.Calculator3.display.value ="";
+        		document.Calculator3.display.style.TextAlign="right";
+    	}
+    	function recip3()
+    	{
+        		document.Calculator3.display.value = 1/document.Calculator3.display.value;
+    	}
+		function makeHex(){
+		if(isHex == false){
+			btnclear3();
+			isHex=true;
+			isDec=false;
+			isOct=false;
+			isBin=false;
+			document.getElementById("Bnot").style.color = "DimGrey";
+			document.getElementById("Band").style.color = "DimGrey";
+			document.getElementById("Bnand").style.color = "DimGrey";
+			document.getElementById("Bor").style.color = "DimGrey";
+			document.getElementById("Bnor").style.color = "DimGrey";
+			document.getElementById("Bxor").style.color = "DimGrey";
+			document.getElementById("Bls").style.color = "DimGrey";
+			document.getElementById("Brs").style.color = "DimGrey";
+			document.getElementById("Ha").style.color = "#00BFFF";
+			document.getElementById("Hb").style.color = "#00BFFF";
+			document.getElementById("Hc").style.color = "#00BFFF";
+			document.getElementById("Hd").style.color = "#00BFFF";
+			document.getElementById("He").style.color = "#00BFFF";
+			document.getElementById("Hf").style.color = "#00BFFF";
+			document.getElementById("D2").style.color = "White";
+			document.getElementById("D3").style.color = "White";
+			document.getElementById("D4").style.color = "White";
+			document.getElementById("D5").style.color = "White";
+			document.getElementById("D6").style.color = "White";
+			document.getElementById("D7").style.color = "White";
+			document.getElementById("D8").style.color = "White";
+			document.getElementById("D9").style.color = "White";
+		}
+	}
+	function makeDec(){
+		if(isDec == false){
+			btnclear3();
+			isHex=false;
+			isDec=true;
+			isOct=false;
+			isBin=false;
+			document.getElementById("Bnot").style.color = "DimGrey";
+			document.getElementById("Band").style.color = "DimGrey";
+			document.getElementById("Bnand").style.color = "DimGrey";
+			document.getElementById("Bor").style.color = "DimGrey";
+			document.getElementById("Bnor").style.color = "DimGrey";
+			document.getElementById("Bxor").style.color = "DimGrey";
+			document.getElementById("Bls").style.color = "DimGrey";
+			document.getElementById("Brs").style.color = "DimGrey";
+			document.getElementById("Ha").style.color = "DimGrey";
+			document.getElementById("Hb").style.color = "DimGrey";
+			document.getElementById("Hc").style.color = "DimGrey";
+			document.getElementById("Hd").style.color = "DimGrey";
+			document.getElementById("He").style.color = "DimGrey";
+			document.getElementById("Hf").style.color = "DimGrey";
+			document.getElementById("D2").style.color = "White";
+			document.getElementById("D3").style.color = "White";
+			document.getElementById("D4").style.color = "White";
+			document.getElementById("D5").style.color = "White";
+			document.getElementById("D6").style.color = "White";
+			document.getElementById("D7").style.color = "White";
+			document.getElementById("D8").style.color = "White";
+			document.getElementById("D9").style.color = "White";
+
+		}
+	}
+	function makeOct(){
+		if(isOct == false){
+			btnclear3();
+			isHex=false;
+			isDec=false;
+			isOct=true;
+			isBin=false;
+			document.getElementById("Bnot").style.color = "DimGrey";
+			document.getElementById("Band").style.color = "DimGrey";
+			document.getElementById("Bnand").style.color = "DimGrey";
+			document.getElementById("Bor").style.color = "DimGrey";
+			document.getElementById("Bnor").style.color = "DimGrey";
+			document.getElementById("Bxor").style.color = "DimGrey";
+			document.getElementById("Bls").style.color = "DimGrey";
+			document.getElementById("Brs").style.color = "DimGrey";
+			document.getElementById("Ha").style.color = "DimGrey";
+			document.getElementById("Hb").style.color = "DimGrey";
+			document.getElementById("Hc").style.color = "DimGrey";
+			document.getElementById("Hd").style.color = "DimGrey";
+			document.getElementById("He").style.color = "DimGrey";
+			document.getElementById("Hf").style.color = "DimGrey";
+			document.getElementById("D2").style.color = "White";
+			document.getElementById("D3").style.color = "White";
+			document.getElementById("D4").style.color = "White";
+			document.getElementById("D5").style.color = "White";
+			document.getElementById("D6").style.color = "White";
+			document.getElementById("D7").style.color = "White";
+			document.getElementById("D8").style.color = "DimGrey";
+			document.getElementById("D9").style.color = "DimGrey";
+		}
+	}
+	function makeBin(){
+		if(isBin == false){
+			btnclear3();
+			isHex=false;
+			isDec=false;
+			isOct=false;
+			isBin=true;
+			document.getElementById("Bnot").style.color = "#00BFFF";
+			document.getElementById("Band").style.color = "#00BFFF";
+			document.getElementById("Bnand").style.color = "#00BFFF";
+			document.getElementById("Bor").style.color = "#00BFFF";
+			document.getElementById("Bnor").style.color = "#00BFFF";
+			document.getElementById("Bxor").style.color = "#00BFFF";
+			document.getElementById("Bls").style.color = "#00BFFF";
+			document.getElementById("Brs").style.color = "#00BFFF";
+			document.getElementById("Ha").style.color = "DimGrey";
+			document.getElementById("Hb").style.color = "DimGrey";
+			document.getElementById("Hc").style.color = "DimGrey";
+			document.getElementById("Hd").style.color = "DimGrey";
+			document.getElementById("He").style.color = "DimGrey";
+			document.getElementById("Hf").style.color = "DimGrey";
+			document.getElementById("D2").style.color = "DimGrey";
+			document.getElementById("D3").style.color = "DimGrey";
+			document.getElementById("D4").style.color = "DimGrey";
+			document.getElementById("D5").style.color = "DimGrey";
+			document.getElementById("D6").style.color = "DimGrey";
+			document.getElementById("D7").style.color = "DimGrey";
+			document.getElementById("D8").style.color = "DimGrey";
+			document.getElementById("D9").style.color = "DimGrey";
+
+		}
+	}
+		function rightshift(){
+		if (isBin == true){
+		var i= parseInt(document.Calculator3.display.value, 2);
+		i = i/2;
+		i = i.toString(2);
+		document.Calculator3.display.value = i;
+		}
+	}
+	function leftshift(){
+		if (isBin == true){
+		var i= parseInt(document.Calculator3.display.value, 2);
+		i = i*2;
+		i = i.toString(2);
+		document.Calculator3.display.value = i;
+		}
+	}
+	function BNOT(){
+		if (isBin == true){
+			var i = parseInt(document.Calculator3.display.value, 2);
+			i = ~i;
+			i = i.toString(2);
+			document.Calculator3.display.value = i;
+		}
+	}
+	function BAND(){
+		if((cNAND==false) && (cOR==false) && (cNOR==false) && (cXOR==false) &&(isBin==true)){
+			document.Calculator3.display.value += ",";
+			cAND = true;
+		}
+	}
+	function BNAND(){
+		if((cAND==false) && (cOR==false) && (cNOR==false) && (cXOR==false) &&(isBin==true)){
+			document.Calculator3.display.value += ",";
+			cNAND = true;
+		}
+	}
+	function BOR (){
+		if((cAND==false) && (cNAND==false) && (cNOR==false) && (cXOR==false) &&(isBin==true)){
+				document.Calculator3.display.value += ",";
+				cOR = true;
+		}	
+	}
+	function BNOR(){
+		if((cAND==false) && (cOR==false) && (cNAND==false) && (cXOR==false) &&(isBin==true)){
+			document.Calculator3.display.value += ",";
+			cNOR = true;
+		}
+
+	}
+	function BXOR(){
+		if((cAND==false) && (cOR==false) && (cNOR==false) && (cNAND==false) && (isBin==true)){
+			document.Calculator3.display.value += ",";
+			cXOR = true;
+		}
+	}
+	function isHexChar(c){
+		if( c == 'A' || c == 'B' || c == 'C' ||c == 'D' || c == 'E' || c == 'F' ){
+			return true;
+               	}
+		else{
+			return false;
+		}
+	}
+               function addnumber3(inp){
+		if( isHex == true){
+			document.Calculator3.display.value += inp;
+		}
+		if(isDec == true){
+			if(!isNaN(parseInt(inp))){
+				document.Calculator3.display.value += inp;
+			}
+		}
+		if(isOct == true){
+			if(parseInt(inp) < 8){
+				document.Calculator3.display.value += inp;
+			}
+		}
+		if(isBin == true){
+			if(parseInt(inp) < 2){
+				document.Calculator3.display.value += inp;
+			}
+		}
+               }
+	function yoyo3()
+	{
+		var str = document.Calculator3.display.value;
+		var str2 = "";
+		var str3 = "";
+		var i;
+		var oi;
+		if(isDec == true){
+			document.Calculator3.display.value = math.eval(document.Calculator3.display.value);
+		}
+		if(isHex==true){
+			while(str.length>0){
+				if(isNaN(str.charAt(0)) && !isHexChar(str.charAt(0))){
+					str2 = str2.concat(str.charAt(0));
+					str = str.substring(1);
+				}
+				else{
+					oi = parseInt(str, 16);
+					oi = oi.toString(16);
+					i = parseInt(str, 16);
+					i = i.toString();
+					str2 = str2.concat(i);
+					str = str.substring(oi.length);
+				}
+			}
+			str2 = math.eval(str2);
+			str2 = str2.toString(16);
+			document.Calculator3.display.value = str2;
+		}
+		if(isOct==true){
+			while(str.length>0){
+				if(isNaN(str.charAt(0))){
+					str2 = str2.concat(str.charAt(0));
+					str = str.substring(1);
+				}
+				else{
+					oi = parseInt(str);
+					oi = oi.toString();
+					i = parseInt(str, 8);
+					str3 = str3.concat(" ", i);
+					i = i.toString();
+					str2 = str2.concat(i);
+					str3 = str3.concat(" ", i);
+					str = str.substring(oi.length);
+				}
+			}
+			str2 = math.eval(str2);
+			str2 = str2.toString(8);
+			document.Calculator3.display.value = str2;
+		}
+		if(isBin==true){
+			var arr = str.split(",");
+			if (arr.length == 2){
+				var l1 = arr[0];
+				var l2 = arr[1];
+				l1 = parseInt(l1, 2);
+				l2 = parseInt(l2, 2);
+				var lstr = ""
+				if(cAND==true){
+					lstr = l1 & l2;
+					lstr = lstr.toString(2);
+					document.Calculator3.display.value = lstr;
+					cAND = false;
+				}
+				if(cNAND==true){
+					lstr = l1 & l2;
+					lstr = ~lstr;
+					lstr = lstr.toString(2);
+					document.Calculator3.display.value = lstr;
+					cNAND = false;
+				}
+				if(cOR==true){
+					lstr = l1 | l2;
+					lstr = lstr.toString(2);
+					document.Calculator3.display.value = lstr;
+					cOR = false;
+				}
+				if(cNOR==true){
+					lstr = l1 | l2;
+					lstr = ~lstr;
+					lstr = lstr.toString(2);
+					document.Calculator3.display.value = lstr;
+					cNOR = false;
+				}
+				if(cXOR==true){
+					lstr = l1 ^ l2;
+					lstr = lstr.toString(2);
+					document.Calculator3.display.value = lstr;
+					cXOR = false;
+				}
+
+			}
+			else{
+				while(str.length>0){
+					if(isNaN(str.charAt(0))){
+						str2 = str2.concat(str.charAt(0));
+						str = str.substring(1);
+					}
+					else{
+						oi = parseInt(str);
+						oi = oi.toString();
+						i = parseInt(str, 2);
+						str3 = str3.concat(" ", i);
+						i = i.toString();
+						str2 = str2.concat(i);
+						str3 = str3.concat(" ", i);
+						str = str.substring(oi.length);
+					}
+				}
+			}
+			str2 = math.eval(str2);
+			str2 = str2.toString(2);
+			document.Calculator3.display.value = str2;
+		}
+
+	}
+		function show(key) 
+	{
+		var elem = '';
+		if(key == 1) elem = 'grav';
+		else if(key == 2) elem = 'kinetic';
+		else if (key == 3) elem = 'ohm';
+
+		var x = document.getElementById(elem);
+		if (x.style.display === "none") x.style.display = "block";
+		else x.style.display = "none";
+	}
+
+	function calc_grav()
+	{
+		var m1 = document.getElementById("m1").value;
+		var m2 = document.getElementById("m2").value;
+		var r = document.getElementById("rad").value;
+		var f = document.getElementById("force").value;
+		var z = 0;
+		var g_const = 6.674*(10**(-11));
+
+		if(m1 == "x")
+		{
+			z = f*(r**2)/(g_const*m2);
+			document.getElementById("m1").value = z;
+		}
+		else if(m2 == "x") 
+		{
+			z = f*(r**2)/(g_const*m1);
+			document.getElementById("m2").value = z;
+		}
+		else if(r == "x")
+		{
+			z = (g_const*m1*m2/f)**.5;
+			document.getElementById("rad").value = z;
+		}
+		else if(f == "x")
+		{
+			z = m1*m2*g_const/r**2;
+			document.getElementById("force").value = z;
+		}
+	}
+
+	function kin_nrg()
+	{
+		var m = document.getElementById("mass").value;
+		var v = document.getElementById("v").value;
+		var k = document.getElementById("kin").value;
+		var z = 0;
+
+		if(k == "x")
+		{
+			z = v**2*m/2;
+			document.getElementById("kin").value = z;
+		}
+		else if(m == "x")
+		{
+			z = 2*k/v**2;
+			document.getElementById("mass").value = z;
+		}
+		else if(v == "x")
+		{
+			z = (2*k/m)**.5;
+			document.getElementById("v").value = z;
+		}
+	}
+
+	function calc_ohm()
+	{
+		var v = document.getElementById("volt").value;
+		var r = document.getElementById("res").value;
+		var i = document.getElementById("curr").value;
+		var z = 0;
+
+		if(v == "x")
+		{
+			document.getElementById("volt").value = i*r;
+		}
+		else if(r == "x")
+		{
+			document.getElementById("res").value = v/i;
+		}
+		else if(i == "x")
+		{
+			document.getElementById("curr").value = v/r;
+		}
+	}
+</script>
+<!--Standard Calculator-->
+<body>
+    <!--<center><br>-->
+    <!--main prompt-->
+
+    <h1>
+	<B>
+			<font color="black" style= "Font-size:70"> CS180: Calculator </font>
+	</h1>
+	</B>
+    <hr size=20 color="black">
+    </center>
+	
+	<ul class="tab">
+	<li><a href="javascript:void(0)" class="tablinks" onclick="openCalc(event, 'Standard')">Standard</a></li>
+	<li><a href="javascript:void(0)" class="tablinks" onclick="openCalc(event, 'Scientific')">Scientific</a></li>
+	<li><a href="javascript:void(0)" class="tablinks" onclick="openCalc(event, 'Programming')">Programming</a></li>
+	<li><a href="javascript:void(0)" class="tablinks" onclick="openCalc(event, 'Phymestry')">Physics & Chemistry</a></li>
+	</ul>
+	<div id="Scientific" class="tabcontent">
+		<center> 
+		<form name="Calculator">
+        <br>
+        <br>
+		<div class= "box2">
+			<div class= "display2"><input type="text" size="15.75" id="display">
+			</div>
+		</form>
+		<br>
+		<button type="button" class="button blue" onClick="btnclear()">C</button>
+		<button type="button" class="button blue" onClick="backspace()">&#x21D0</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'log('">log</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'ln('">ln</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += '('">(</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += ')'">)</button>
+		<br>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value *= document.Calculator.display.value">x<sup>2</sup></button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'sin('">sin</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'cos('">cos</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'tan('">tan</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += '!'">n!</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'e^'">e<sup>x</sup></button>
+		<br>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += '^'">x<sup>y</sup></button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'asin('">asin</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'acos('">acos</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'atan('">atan</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += '/'">/</button>
+		<br>
+		<button type="button" class="button blue" onClick="recip()">1&frasl;<sub>x</sub></button>
+		<button type="button" class="button black" onClick="document.Calculator.display.value +='7'">7</button>
+		<button type="button" class="button black" onClick="document.Calculator.display.value +='8'">8</button>
+		<button type="button" class="button black" onClick="document.Calculator.display.value +='9'">9</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += '*'">*</button>
+		<br>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'pi'">π</button>
+		<button type="button" class="button black" onClick="document.Calculator.display.value +='4'">4</button>
+		<button type="button" class="button black" onClick="document.Calculator.display.value +='5'">5</button>
+		<button type="button" class="button black" onClick="document.Calculator.display.value +='6'">6</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += '-'">-</button>
+		<br>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += 'sqrt('">&radic;</button>
+		<button type="button" class="button black" onClick="document.Calculator.display.value +='1'">1</button>
+		<button type="button" class="button black" onClick="document.Calculator.display.value +='2'">2</button>
+		<button type="button" class="button black" onClick="document.Calculator.display.value +='3'">3</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += '+'">+</button>
+		<br>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += '%'">%</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value = document.Calculator.display.value * -1">&plusmn</button>
+		<button type="button" class="button black" onClick="document.Calculator.display.value +='0'">0</button>
+		<button type="button" class="button blue" onClick="document.Calculator.display.value += '.'">.</button>
+		<button type="button" class="button blue" onClick="yoyo()">=</button>
+		<br>
+		</center>
+	</div>
+	<div id="Standard" class="tabcontent">
+		<center>
+		<form name="Calculator2">
+			<br>
+			<br>
+		<div class= "box1">
+			<div class= "display1"><input type="text" size="15.75" id="display">
+			</div>
+		</form> 
+		<br>
+		<button type="button" class="button blue" onClick="document.Calculator2.display.value *= document.Calculator2.display.value">x<sup>2</sup></button>
+		<button type="button" class="button blue" onClick="document.Calculator2.display.value += '%'">%</button>
+		<button type="button" class="button blue" onClick="document.Calculator2.display.value = Math.sqrt(document.Calculator2.display.value)">&radic;</button>
+		<button type="button" class="button blue" onClick="recip2()">1&frasl;<sub>x</sub></button>
+		<br>
+		<button type="button" class="button blue" onClick="document.Calculator2.display.value += '^'">x<sup>y</sup></button>
+		<button type="button" class="button blue" onClick="btnclear2()">C</button>
+		<button type="button" class="button blue" onClick="backspace2()">&#x21D0</button>
+		<button type="button" class="button blue" onClick="document.Calculator2.display.value += '/'">/</button>
+		<br>
+		<button type="button" class="button black" onClick="document.Calculator2.display.value +='7'">7</button>
+		<button type="button" class="button black" onClick="document.Calculator2.display.value +='8'">8</button>
+		<button type="button" class="button black" onClick="document.Calculator2.display.value +='9'">9</button>
+		<button type="button" class="button blue" onClick="document.Calculator2.display.value += '*'">*</button>
+		<br>
+		<button type="button" class="button black" onClick="document.Calculator2.display.value +='4'">4</button>
+		<button type="button" class="button black" onClick="document.Calculator2.display.value +='5'">5</button>
+		<button type="button" class="button black" onClick="document.Calculator2.display.value +='6'">6</button>
+		<button type="button" class="button blue" onClick="document.Calculator2.display.value += '-'">-</button>
+		<br>
+		<button type="button" class="button black" onClick="document.Calculator2.display.value +='1'">1</button>
+		<button type="button" class="button black" onClick="document.Calculator2.display.value +='2'">2</button>
+		<button type="button" class="button black" onClick="document.Calculator2.display.value +='3'">3</button>
+		<button type="button" class="button blue" onClick="document.Calculator2.display.value += '+'">+</button>
+		<br>
+		<button type="button" class="button blue" onClick="document.Calculator2.display.value = document.Calculator.display.value * -1">&plusmn</button>
+		<button type="button" class="button black" onClick="document.Calculator2.display.value +='0'">0</button>
+		<button type="button" class="button blue" onClick="document.Calculator2.display.value += '.'">.</button>
+		<button type="button" class="button blue" onClick="yoyo2()">=</button>
+		<br>
+		</center>
+	</div>
+
+	<div id="Programming" class="tabcontent">
+		<center>
+		<form name="Calculator3">
+		<br>
+		<br>
+        <button type="button" class="buttonp" onClick = "makeHex()"><a href="javascript:void(0)">Hexadecimal</a></button>
+		<button type="button" class="buttonp" onClick = "makeDec()"><a href="javascript:void(0)">Decimal</a></button>
+		<button type="button" class="buttonp" onClick = "makeOct()"><a href="javascript:void(0)">Octal</a></button>
+		<button type="button" class="buttonp" onClick = "makeBin()"><a href="javascript:void(0)">Binary</a></button>
+        <br>
+        <br>
+		<div class= "box3">
+		<div class= "display3"><input type="text" readonly size="15.75" id="display"></div>
+		</form> 
+		<br>
+		<button type="button" class="buttonw grey" id = "Bnot" onClick="BNOT()">NOT</button>
+		<button type="button" class="buttonw blue" id = "Hd" onClick="addnumber3('D')">D</button>
+		<button type="button" class="buttonw blue" id = "He" onClick="addnumber3('E')">E</button>
+		<button type="button" class="buttonw blue" id = "Hf" onClick="addnumber3('F')">F</button>
+		<button type="button" class="buttonw blue" onClick="document.Calculator3.display.value +='/'"  >/</button>
+		<button type="button" class="buttonw blue" onclick = "btnclear3()" >CE</button>			
+		<br>
+		<button type="button" class="buttonw grey" id = "Band" onClick = "BAND()">AND</button>
+		<button type="button" class="buttonw blue" id = "Ha" onClick="addnumber3('A')">A</button>
+		<button type="button" class="buttonw blue" id = "Hb" onClick="addnumber3('B')">B</button>
+		<button type="button" class="buttonw blue" id = "Hc" onClick="addnumber3('C')">C</button>
+		<button type="button" class="buttonw blue" onClick="document.Calculator3.display.value +='*'"  >*</button>
+		<button type="button" class="buttonw blue" onClick="backspace3()">&#x21D0</button>
+		<br>
+		<button type="button" class="buttonw grey" id = "Bnand" onClick = "BNAND()">NAND</button>
+		<button type="button" class="buttonw black" id = "D7" onClick="addnumber3('7')">7</button>
+		<button type="button" class="buttonw black" id = "D8" onClick="addnumber3('8')">8</button>
+		<button type="button" class="buttonw black" id = "D9" onClick="addnumber3('9')">9</button>
+		<button type="button" class="buttonw blue" onClick="document.Calculator3.display.value +='.'"  >.</button>	
+		<button type="button" class="buttonw grey" id = "Bls" onClick = "leftshift()">&#60&#60</button>
+		<br>
+		<button type="button" class="buttonw grey" id = "Bor" onClick="BOR()">OR</button>
+		<button type="button" class="buttonw black" id = "D4" onClick="addnumber3('4')">4</button>
+		<button type="button" class="buttonw black" id = "D5" onClick="addnumber3('5')">5</button>
+		<button type="button" class="buttonw black" id = "D6" onClick="addnumber3('6')" >6</button>
+		<button type="button" class="buttonw blue" onClick="document.Calculator3.display.value +='+'"  >+</button>
+		<button type="button" class="buttonw grey" id = "Brs" onClick = "rightshift()">&#62&#62</button>
+		<br>
+		<button type="button" class="buttonw grey" id = "Bnor" onClick = "BNOR()">NOR</button>
+		<button type="button" class="buttonw black" id = "D1" onClick="addnumber3('1')">1</button>
+		<button type="button" class="buttonw black" id = "D2" onClick="addnumber3('2')">2</button>
+		<button type="button" class="buttonw black" id = "D3" onClick="addnumber3('3')">3</button>
+		<button type="button" class="buttonw blue" onClick="yoyo3()">=</button>
+		<button type="button" class="buttonw blue" style="visibility:hidden;">A &#60 &#60 B</button>
+		<br>
+		<button type="button" class="buttonw grey" id = "Bxor" onClick = "BXOR()">XOR</button>
+		<button type="button" class="buttonw black" onClick="addnumber3('0')" >0</button>
+		<button type="button" class="buttonw blue" > </button>
+		<button type="button" class="buttonw blue" > </button>
+		<button type="button" class="buttonw blue" onClick="document.Calculator3.display.value +='-'"  >-</button>
+		<button type="button" class="buttonw blue" style="visibility:hidden;">A &#62 &#62 B</button>
+		<br>
+		</center>
+	</div>
+  		
+  	<div id="container">	  
+		<div id="Phymestry" class="tabcontent">
+			<div id="left">
+				<div class = "box4">	
+					<div class="constnaslov"><b>Physical Constants</b></div>
+					<div class="const" onClick="document.Calculator4.display.value += -273.15"><a href="#">Absolute zero<br>-273.15 °C</a></div>
+					
+					<div class="const" onClick="document.Calculator4.display.value += 9.80665"><a href="#">Acceleration of free fall, standard<br>9.80665 m/s<sup>2</sup></a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 1.6605402e-27"><a href="#">Atomic mass unit<br>1.6605402×10<sup>-27</sup> kg</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 6.0221367e23"><a href="#">Avogadro constant<br>6.0221367×10<sup>23</sup> 1/mol</a></div>
+
+					<div class="const" onClick="document.Calculator4.display.value += 2.718281828"><a href="#">Base of natural logarithms <br>2.718281828</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 1.380658e-23"><a href="#">Boltzmann constant<br>1.380658×10<sup>-23</sup> J/K</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 2.81794092e-15"><a href="#">Classical electron radius<br>2.81794092×10<sup>-15</sup> m</a></div>
+
+					<div class="const" onClick="document.Calculator4.display.value += 9.1093897e-31"><a href="#">Electron mass<br>9.1093897×10<sup>-31</sup> kg</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 5.44617013e-4"><a href="#">Electron-proton mass ratio<br>5.44617013×10<sup>-4</sup></a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 1.6021892e-19"><a href="#">Electronvolt<br>1.6021892×10<sup>-19</sup> J</a></div>
+
+					<div class="const" onClick="document.Calculator4.display.value += 1.60217733e-19"><a href="#">Elementary charge<br>1.60217733×10<sup>-19</sup> C</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 96485.309"><a href="#">Faraday constant<br>96485.309 C/mol</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 3.7417749e-16"><a href="#">First radiation constant<br>3.7417749×10<sup>-16</sup> W m<sup>2</sup></a></div>
+
+					<div class="const" onClick="document.Calculator4.display.value += 8.314510"><a href="#">Molar gas constant<br>8.314510 J/mol K</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 0.02241410"><a href="#">Molar volume<br>(Ideal gas, <i>T</i> = 273.15 K, <i>p</i> = 101.325 kPa)<br>0.02241410 m<sup>3</sup>/mol</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 6.67259e-11"><a href="#">Newtonian constant of gravitation<br>6.67259×10<sup>-11</sup> N m<sup>2</sup>/kg<sup>2</sup></a></div>
+
+					<div class="const" onClick="document.Calculator4.display.value += 12.566370614e-7"><a href="#">Permeability of vacuum<br>12.566370614×10<sup>-7</sup> N/A<sup>2</sup></a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 8.854187817e-12"><a href="#">Permittivity of vacuum<br>8.854187817×10<sup>-12</sup> F/m</a></div>
+
+					<div class="const" onClick="document.Calculator4.display.value += 6.6260755e-34"><a href="#">Planck constants<br>6.6260755×10<sup>-34</sup> J s</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 0.01438769"><a href="#">Second radiation constant<br>0.01438769 m K</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 1400"><a href="#">Solar constant<br>1400 W/m<sup>2</sup></a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 299792458"><a href="#">Speed of light in vacuum<br>299792458 m/s</a></div>
+
+					<div class="const" onClick="document.Calculator4.display.value += 340"><a href="#">Speed of sound in air at STP<br>340 m/s</a></div>
+					<div class="const" onClick="document.Calculator4.display.value += 101325"><a href="#">Standard pressure<br>101325 Pa</a></div>
+				</div>
+			</div>
+			<div id="right">
+				<div class= "box6">
+					<div>
+						<font color= "white", font size="+1"> Length </font>
+						<br>
+						<select id="length1">
+							<option value="m">Meter</option>
+							<option value="km">Kilometer</option>
+							<option value="cm">Centimeter</option>
+							<option value="mm">Millimeter</option>
+							<option value="um">Micrometer</option>
+							<option value="nm">Nanometer</option>
+							<option value="mi">Mile</option>
+							<option value="ft">Foot</option>
+							<option value="in">Inch</option>
+						</select>
+						<br>
+						<div class= "displayc">
+							<input type="text" id="lengthin" value="0">
+							<input type="text" id="lengthin2" readonly value = "0">
+						</div>
+						<br>
+						<select id="length2">
+							<option value="m">Meter</option>
+							<option value="km">Kilometer</option>
+							<option value="cm">Centimeter</option>
+							<option value="mm">Millimeter</option>
+							<option value="um">Micrometer</option>
+							<option value="nm">Nanometer</option>
+							<option value="mi">Mile</option>
+							<option value="ft">Foot</option>
+							<option value="in">Inch</option>
+						</select>
+						<br>
+						<button type="buttonconv" class="buttonconv blue" onClick="lengthen()">Convert</button>
+					</div>
+					<br>
+					<div>
+						<font color= "white", font size="+1"> Temperature </font>
+						<br>
+						<select id="temp1">
+							<option value="degC">Celsius</option>
+							<option value="degF">Fahrenheit</option>
+							<option value="K">Kelvin</option>
+						</select>
+						<br>
+						<div class= "displayc">
+							<input type="text" id="tempin" value="0">
+							<input type="text" id="tempin2" readonly value = "0">
+						</div>
+						<br>
+						<select id="temp2">
+							<option value="degC">Celsius</option>
+							<option value="degF">Fahrenheit</option>
+							<option value="K">Kelvin</option>
+						</select>
+						<br>
+						<button type="buttonconv" class="buttonconv blue" onClick="temp()">Convert</button>
+					</div>
+					<br>
+					<div>
+						<font color= "white", font size="+1"> Volume </font>
+						<br>
+						<select id="vol1">
+							<option value="L">Liter</option>
+							<option value="mL">Milliliter</option>
+							<option value="gal">Gallon</option>
+							<option value="qt">Quart</option>
+							<option value="pt">Pint</option>
+							<option value="cp">Cup</option>
+						</select>
+						<br>
+						<div class= "displayc"><input type="text" id="volin" value="0">
+						<input type="text" id="volin2" readonly value = "0"></div>
+						<br>
+						<select id="vol2">
+							<option value="L">Liter</option>
+							<option value="mL">Milliliter</option>
+							<option value="gal">Gallon</option>
+							<option value="qt">Quart</option>
+							<option value="pt">Pint</option>
+							<option value="cp">Cup</option>
+						</select>
+						<br>
+						<button type="buttonconv" class="buttonconv blue" onClick="volume()">Convert</button>
+					</div>
+					<br>
+					<div>
+						<font color= "white", font size="+1"> Weight </font>
+						<br>
+						<select id="wei1">
+							<option value="kg">Kilogram</option>
+							<option value="g">Gram</option>
+							<option value="mg">Milligram</option>
+							<option value="ton">Ton</option>
+							<option value="lb">Pound</option>
+							<option value="oz">Ounce</option>
+						</select>
+						<br>
+						<div class= "displayc"><input type="text" id="weiin" value="0">
+						<input type="text" id="weiin2" readonly value = "0"></div>
+						<br>
+						<select id="wei2">
+							<option value="kg">Kilogram</option>
+							<option value="g">Gram</option>
+							<option value="mg">Milligram</option>
+							<option value="ton">Ton</option>
+							<option value="lb">Pound</option>
+							<option value="oz">Ounce</option>
+						</select>
+						<br>
+						<button type="buttonconv" class="buttonconv blue" onClick="weight()">Convert</button>
+					</div>
+					<br>
+					<div>
+						<font color= "white", font size="+1"> Time </font>
+						<br>
+						<select id="time1">
+							<option value="s">Second</option>
+							<option value="ms">Millisecond</option>
+							<option value="us">Microsecond</option>
+							<option value="ns">Nanosecond</option>
+							<option value="min">Minute</option>
+							<option value="h">Hour</option>
+							<option value="days">Day</option>
+							<option value="weeks">Week</option>
+							<option value="months">Month</option>
+							<option value="years">Year</option>
+						</select>
+						<br>
+						<div class= "displayc"><input type="text" id="timein" value="0">
+						<input type="text" id="timein2" readonly value = "0"></div>
+						<br>
+						<select id="time2">
+							<option value="s">Second</option>
+							<option value="ms">Millisecond</option>
+							<option value="us">Microsecond</option>
+							<option value="ns">Nanosecond</option>
+							<option value="min">Minute</option>
+							<option value="h">Hour</option>
+							<option value="days">Day</option>
+							<option value="weeks">Week</option>
+							<option value="months">Month</option>
+							<option value="years">Year</option>
+						</select>
+						<br>
+						<button type="buttonconv" class="buttonconv blue" onClick="timing()">Convert</button>
+					</div>
+				</div>
+			</div>
+			<div id="center">
+				<center>
+				<div class= "box5">
+					<form name="Calculator4">
+						<div class= "display2">
+							<input type="text" size="15.75" id="display">
+						</div>
+					</form>
+					<br>
+					<button type="button" class="button blue" onClick="btnclear4()">C</button>
+					<button type="button" class="button blue" onClick="backspace4()">&#x21D0</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'log('">log</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'ln('">ln</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += '('">(</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += ')'">)</button>
+					<br>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value *= document.Calculator.display.value">x<sup>2</sup></button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'sin('">sin</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'cos('">cos</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'tan('">tan</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += '!'">n!</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'e^'">e<sup>x</sup></button>
+					<br>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += '^'">x<sup>y</sup></button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'asin('">asin</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'acos('">acos</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'atan('">atan</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += '/'">/</button>
+					<br>
+					<button type="button" class="button blue" onClick="recip4()">1&frasl;<sub>x</sub></button>
+					<button type="button" class="button black" onClick="document.Calculator4.display.value +='7'">7</button>
+					<button type="button" class="button black" onClick="document.Calculator4.display.value +='8'">8</button>
+					<button type="button" class="button black" onClick="document.Calculator4.display.value +='9'">9</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += '*'">*</button>
+					<br>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'pi'">π</button>
+					<button type="button" class="button black" onClick="document.Calculator4.display.value +='4'">4</button>
+					<button type="button" class="button black" onClick="document.Calculator4.display.value +='5'">5</button>
+					<button type="button" class="button black" onClick="document.Calculator4.display.value +='6'">6</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += '-'">-</button>
+					<br>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += 'sqrt('">&radic;</button>
+					<button type="button" class="button black" onClick="document.Calculator4.display.value +='1'">1</button>
+					<button type="button" class="button black" onClick="document.Calculator4.display.value +='2'">2</button>
+					<button type="button" class="button black" onClick="document.Calculator4.display.value +='3'">3</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += '+'">+</button>
+					<br>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += '%'">%</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value = document.Calculator.display.value * -1">&plusmn</button>
+					<button type="button" class="button black" onClick="document.Calculator4.display.value +='0'">0</button>
+					<button type="button" class="button blue" onClick="document.Calculator4.display.value += '.'">.</button>
+					<button type="button" class="button blue" onClick="yoyo4()">=</button>
+					<br>
+					<br>
+					<br>
+					<p style="color:red;" onclick="show(1)">Gravitational Force</p>
+					<div style="display:none;" id="grav">
+						Mass1:<br><input style="text-align:right;" type="text" id="m1" value="0">kg<br>
+						Mass2:<br><input style="text-align:right;" type="text" id="m2" value="0">kg<br>
+						Radius:<br><input style="text-align:right;" type="text" id="rad" value="0">m<br>
+						Force:<br><input style="text-align:right;" type="text" id="force" value="0">N<br>
+						<br><button onClick="calc_grav()">Calculate</button>
+					</div>
+
+					<p style="color:red;" onclick="show(2)">Kinetic Energy</p>
+					<div style="display:none;" id="kinetic">
+						Mass:<br><input style="text-align:right;" type="text" id="mass" value="0">kg<br>
+						Velocity:<br><input style="text-align:right;" type="text" id="v" value="0"><sup>m</sup>&frasl;<sub>s</sub><br>
+						Kinetic Energy:<br><input style="text-align:right;" type="text" id="kin" value="0">J<br>
+						<br><button onClick="kin_nrg()">Calculate</button>
+					</div>
+
+					<p style="color:red;" onclick="show(3)">Ohm's Law</p>
+					<div style="display:none;" id="ohm">
+						Voltage:<br><input style="text-align:right;" type="text" id="volt" value="0">V<br>
+						Current:<br><input style="text-align:right;" type="text" id="curr" value="0">A<br>
+						Resistance:<br><input style="text-align:right;" type="text" id="res" value="0">&#x3A9<br>
+						<br><button onClick="calc_ohm()">Calculate</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
